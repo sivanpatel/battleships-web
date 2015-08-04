@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'battleships' # if you are using Ben's gem
 gem 'sinatra'
 
 group :development, :test do
