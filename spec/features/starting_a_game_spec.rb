@@ -11,7 +11,7 @@ feature 'starting a game' do
     visit '/new_game'
     fill_in('name', with: 'ken')
     click_button 'Submit'
-    expect(page).to have_content "Hello ken"
+    expect(page).to have_content "Hello Ken"
   end
 
   scenario 'takes you back if you enter no name' do

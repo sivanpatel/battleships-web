@@ -1,10 +1,10 @@
 class Board
 	attr_reader :grid
 
-	def initialize(content)
-		@grid = {}
-		[*"A".."J"].each do |l|
-			[*1..10].each {|n| @grid["#{l}#{n}".to_sym] = content.new}
+  def initialize(content)
+    @grid = {}
+    [*"A".."J"].each do |l|
+      [*1..10].each {|n| @grid["#{l}#{n}".to_sym] = content.new}
 		end
 	end
 
@@ -42,7 +42,7 @@ private
 	end
 
 	def is_a_ship?(cell)
-		cell.content.respond_to?(:sunk?) 
+		cell.content.respond_to?(:sunk?)
 	end
 
 	def any_coord_not_on_grid?(coords)

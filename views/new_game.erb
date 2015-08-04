@@ -1,15 +1,15 @@
 <div>
   <% if @player.nil? %>
-    <form action="/new_game">
+    <form action="/new_game" method="post">
       What is your name?
-      <input type="text" name="name" />
+      <input type="text" name="first_name" required />
       <input type="submit" value="Submit">
     </form>
   <% elsif @player.empty? %>
     Invalid name
     <a href="/new_game">click here to go back</a>
   <% else %>
-    <h3> Hello <%= @player %> </h3>
+    <h3> Hello <%= @player.capitalize %> </h3>
       <form action="/start_game">
         <input type="submit" value="Start Game">
       </form>
