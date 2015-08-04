@@ -9,27 +9,29 @@ feature 'starting a game' do
 
   scenario 'I am to fill in a form with my name' do
     visit '/new_game'
-    fill_in('name', with: 'ken')
+    fill_in('first_name', with: 'ken')
     click_button 'Submit'
     expect(page).to have_content "Hello Ken"
   end
 
   scenario 'takes you back if you enter no name' do
     visit '/new_game'
-    fill_in('name', with: '')
+    fill_in('first_name', with: '')
     click_button 'Submit'
     expect(page).to have_content "Invalid name click here to go back"
   end
 
   scenario 'after entering valid name I can start game' do
     visit '/new_game'
-    fill_in('name', with: 'ken')
+    fill_in('first_name', with: 'ken')
     click_button 'Submit'
-    expect(page).to have_button 'Start Game'
+    click_button 'Start Game'
+    expect(current_path).to eq '/start_game'
   end
 
   scenario 'shows I can have single player' do
     visit '/start_game'
-    expect(page).to have_button 'Single Player'
+    click_button 'Single Player'
+    expect(current_path).to eq '/single_player'
   end
 end

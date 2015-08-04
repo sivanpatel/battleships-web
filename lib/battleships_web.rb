@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require_relative 'game'
+require_relative '../game_setup'
 
 class Battleshipsweb < Sinatra::Base
   set :views, proc { File.join(root, '..', 'views') }
@@ -18,11 +18,16 @@ class Battleshipsweb < Sinatra::Base
   end
 
   get '/start_game' do
-    $game = Game.new
     erb :start_game
   end
 
   get '/single_player' do
+    @coords = params[:coords]
+    erb :single_player, layout: false
+  end
+
+  post '/single_player' do
+    @coords = params[:coords]
     erb :single_player, layout: false
   end
 
