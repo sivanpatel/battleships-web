@@ -24,4 +24,5 @@ feature 'starting a game' do
     fill_in('name', with: 'ken')
     click_button 'Submit'
     expect(page).to have_content "Start Game"
+  end
 end
