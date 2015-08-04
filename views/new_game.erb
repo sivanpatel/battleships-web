@@ -10,6 +10,8 @@
     <a href="/new_game">click here to go back</a>
   <% else %>
     <h3> Hello <%= @player %> </h3>
-      <a href="/start_game">Start Game</a>
+      <form action="/start_game">
+        <input type="submit" value="Start Game">
+      </form>
   <% end %>
 </div>
