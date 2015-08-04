@@ -1,8 +1,9 @@
 require 'sinatra/base'
+require 'battleships'
 
-class battleshipsweb < Sinatra::Base
+class BattleshipsWeb < Sinatra::Base
   get '/' do
-    'Hello battleshipsweb!'
+    'Hello BattleshipsWeb!'
   end
 
   # start the server if ruby file executed directly
