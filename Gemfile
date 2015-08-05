@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'battleships'
 gem 'sinatra'
-require 'battleships'
 
 group :development, :test do
   gem 'capybara'

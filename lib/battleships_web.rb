@@ -1,8 +1,10 @@
 require 'sinatra/base'
 require 'battleships'
 
-class Battleshipsweb < Sinatra::Base
+class BattleshipsWeb < Sinatra::Base
   set :views, proc { File.join(root, '..', 'views') }
+
+  enable :sessions
 
   get '/' do
     erb :index, layout: false
@@ -13,7 +15,9 @@ class Battleshipsweb < Sinatra::Base
   end
 
   post '/new_game' do
-    @player = params[:first_name]
+    session[:player] = params[:name]
+    redirect '/new_game' if session[:player] == ''
+    redirect '/start_game'
     erb :new_game
   end
 
@@ -22,12 +26,7 @@ class Battleshipsweb < Sinatra::Base
   end
 
   get '/single_player' do
-    @coords = params[:coords]
-    erb :single_player, layout: false
-  end
-
-  post '/single_player' do
-    @coords = params[:coords]
+    $game = Game.new(Player, Board)
     erb :single_player, layout: false
   end
 
