@@ -26,8 +26,16 @@ class BattleshipsWeb < Sinatra::Base
   end
 
   get '/single_player' do
-    $game = Game.new(Player, Board)
+    $GAME = Game.new(Player, Board)
     erb :single_player, layout: false
+  end
+
+  post '/single_player' do
+    coordinate = params[:coordinate]
+    ship = params[:ships]
+    orientation = params[:orientation]
+    fire = params[:fire]
+    erb :single_player
   end
 
   # start the server if ruby file executed directly

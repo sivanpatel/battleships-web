@@ -1,0 +1,32 @@
+
+<pre><%= $GAME.own_board_view $GAME.player_1 %></pre>
+
+<form>
+  Where do you want to place your boat?
+  <input type="text" name ="coordinate" />
+  <select name="ships">
+    <option value="destroyer">Destroyer</option>
+    <option value="submarine">Submarine</option>
+    <option value="cruiser">Cruiser</option>
+    <option value="battleship">Battleship</option>
+    <option value="aircraft_carrier">Aircraft Carrier</option>
+  </select>
+  <select name="orientation">
+    <option value=":horizontal">Horizontal</option>
+    <option value=":vertical">Vertical</option>
+  </select>
+  <input type ="submit" name="Submit" />
+</form>
+<% $GAME.player_1.place_ship Ship.params[:ship], params[:coordinate], params[:orientation] %>
+
+
+<form>
+  Where do you want to fire?
+  <input type="text" name="fire"/>
+  <input type="submit" name="Submit"/>
+</form>
+
+  <%= params[:coordinate] %>
+  <%= params[:ships] %>
+  <%= params[:orientation] %>
+  <%= params[:fire] %>
