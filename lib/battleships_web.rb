@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require_relative '../game_setup'
+require 'battleships'
 
 class Battleshipsweb < Sinatra::Base
   set :views, proc { File.join(root, '..', 'views') }
